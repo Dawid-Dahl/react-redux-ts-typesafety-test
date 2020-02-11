@@ -1,4 +1,4 @@
-import {ActionTypes, AppEvents} from "../actions/types";
+import {ActionTypes, AppEvents} from "../actions/actions";
 
 type ReducerState = {
 	count: number;
