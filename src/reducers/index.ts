@@ -1,4 +1,8 @@
-import {ReducerState, ActionTypes} from "../actions/types";
+import {ActionTypes} from "../actions/actions";
+
+export type ReducerState = {
+	count: number;
+};
 
 const initialState: ReducerState = {
 	count: 0
