@@ -31,27 +31,3 @@ const actions = {
 } as const;
 
 export type ActionTypes = ActionUnion<typeof actions>;
-
-/* export const increment1 = (payload: any = null) =>
-	({
-		type: AppEvents.INCREMENT_1,
-		payload
-	} as const); 
-
-export const increment5 = (payload: any = null) =>
-	({
-		type: AppEvents.INCREMENT_5,
-		payload
-	} as const);
-
-export const decrement1 = (payload: any = null) =>
-	({
-		type: AppEvents.DECREMENT_1,
-		payload
-	} as const);
-
-export const decrement5 = (payload: any = null) =>
-	({
-		type: AppEvents.DECREMENT_5,
-		payload
-	} as const); */
