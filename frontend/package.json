@@ -2,7 +2,7 @@
 	"name": "react-redux-ts-typesafety-test",
 	"version": "1.0.0",
 	"description": "",
-	"main": "./src/index.tsx",
+	"main": "index.tsx",
 	"scripts": {
 		"start": "parcel src/index.html",
 		"build": "parcel build src/index.html",
