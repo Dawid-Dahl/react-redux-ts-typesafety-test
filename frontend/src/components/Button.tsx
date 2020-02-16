@@ -1,5 +1,5 @@
 import React from "react";
-import {ActionTypes} from "../actions/actions";
+import {ActionTypes} from "../actions/countActions";
 import {useDispatch} from "react-redux";
 
 type Props = {

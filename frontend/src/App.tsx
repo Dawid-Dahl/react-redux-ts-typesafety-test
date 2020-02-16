@@ -5,10 +5,10 @@ import {Display} from "./components/Display";
 import {Button} from "./components/Button";
 import {useSelector} from "react-redux";
 import {RootState} from "./store";
-import {increment1, increment5, decrement1, decrement5} from "./actions/actions";
+import {increment1, increment5, decrement1, decrement5} from "./actions/countActions";
 
 const App: React.FC = () => {
-	const count = useSelector((state: RootState) => state.reducer.count);
+	const count = useSelector((state: RootState) => state.countReducer.count);
 
 	return (
 		<div className="wrapper">

@@ -11,7 +11,7 @@ db.serialize(() => {
 	enum tables {
 		counter = "Counter"
 	}
-	db.run(
+	/* db.run(
 		`CREATE TABLE IF NOT EXISTS ${tables.counter} (
         "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         "value" INTEGER NOT NULL
@@ -21,7 +21,11 @@ db.serialize(() => {
 				? console.error(err.message)
 				: console.log(`Table ${tables.counter} added successfully`);
 		}
-	);
+	); */
+	const sql = "ALTER TABLE Counter RENAME COLUMN count TO count";
+	db.run(sql, err => {
+		err ? console.error(err.message) : console.log(`Column altered!`);
+	});
 });
 
 db.close(err =>

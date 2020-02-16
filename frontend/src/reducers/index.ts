@@ -1,4 +1,10 @@
-import {ActionTypes} from "../actions/actions";
+import {ActionTypes} from "../actions/countActions";
+
+enum PromiseMiddleware {
+	pending = "_PENDING",
+	fulfilled = "_FULFILLED",
+	rejected = "_REJECTED"
+}
 
 export type ReducerState = {
 	count: number;
@@ -8,7 +14,7 @@ const initialState: ReducerState = {
 	count: 0
 } as const;
 
-const reducer = (state: ReducerState = initialState, {type}: ActionTypes): ReducerState => {
+const countReducer = (state: ReducerState = initialState, {type}: ActionTypes): ReducerState => {
 	switch (type) {
 		case "INCREMENT_1":
 			return {...state, count: state.count + 1};
@@ -26,4 +32,4 @@ const reducer = (state: ReducerState = initialState, {type}: ActionTypes): Reduc
 	}
 };
 
-export {reducer};
+export {countReducer};
