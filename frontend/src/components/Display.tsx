@@ -1,9 +1,9 @@
 import React from "react";
 
 type Props = {
-	value: number;
+	count: number;
 };
 
-const Display: React.FC<Props> = ({value}) => <div className="display">{value}</div>;
+const Display: React.FC<Props> = ({count}) => <div className="display">{count}</div>;
 
 export {Display};

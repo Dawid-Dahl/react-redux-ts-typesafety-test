@@ -3,17 +3,22 @@ import "./App.scss";
 import {Header} from "./components/Header";
 import {Display} from "./components/Display";
 import {Button} from "./components/Button";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {RootState} from "./store";
 import {increment1, increment5, decrement1, decrement5} from "./actions/countActions";
+import {fetchCount} from "./actions/fetchActions";
 
 const App: React.FC = () => {
 	const count = useSelector((state: RootState) => state.countReducer.count);
+	const dispatch = useDispatch();
+	React.useEffect(() => {
+		dispatch(fetchCount());
+	}, []);
 
 	return (
 		<div className="wrapper">
 			<Header title="Current State:" />
-			<Display value={count} />
+			<Display count={count} />
 			<div>
 				<Button title="Decrement: 5" onClick={decrement5} />
 				<Button title="Decrement: 1" onClick={decrement1} />

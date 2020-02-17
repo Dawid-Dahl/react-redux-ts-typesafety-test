@@ -14,7 +14,7 @@ db.serialize(() => {
 	/* db.run(
 		`CREATE TABLE IF NOT EXISTS ${tables.counter} (
         "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        "value" INTEGER NOT NULL
+        "count" INTEGER NOT NULL
     );`,
 		err => {
 			err
