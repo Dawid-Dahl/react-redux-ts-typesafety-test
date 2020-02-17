@@ -1,4 +1,4 @@
-export const increment1 = (payload: any = null) =>
+/* export const increment1 = (payload: any = null) =>
 	({
 		type: "INCREMENT_1",
 		payload
@@ -26,4 +26,4 @@ export type ActionTypes =
 	| ReturnType<typeof increment1>
 	| ReturnType<typeof increment5>
 	| ReturnType<typeof decrement1>
-	| ReturnType<typeof decrement5>;
+	| ReturnType<typeof decrement5>; */

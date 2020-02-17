@@ -8,7 +8,7 @@ const db = new sqlite3.Database("database.db", sqlite3.OPEN_READWRITE, err =>
 const apiRouter = express.Router();
 
 const sqlCountUpdator = (payload: number): string =>
-	`UPDATE Counter SET count = ${payload} WHERE id = 0;`;
+	`UPDATE Counter SET count = ${payload} WHERE id = 1;`;
 
 apiRouter.get("/", (req, res) => {
 	db.get("SELECT * FROM Counter", (err, row) =>
@@ -17,19 +17,24 @@ apiRouter.get("/", (req, res) => {
 });
 
 apiRouter.post("/", (req, res) => {
-	/* db.serialize(() => {
-		const sqlRun = sqlCountUpdator(req.body);
-		const sqlGet = `SELECT count FROM Count;`;
-		db.run(sqlRun, err =>
-			err ? console.error(err) : console.log(`Count updated: ${req.body}`)
-		).get(sqlGet, (err, row) =>
-			err
-				? console.error(err)
-				: row
-				? console.log(row.id, row.count)
-				: console.log("No row was found")
-		);
-	}); */
+	db.serialize(() => {
+		db.get("SELECT * FROM Counter", (err, row) => {
+			if (err) {
+				console.error(err);
+			} else {
+				const oldCount = row.count;
+				const newCount = req.body.count;
+				const combinedCount = oldCount + newCount;
+				const sql = sqlCountUpdator(combinedCount);
+				db.run(sql, err =>
+					err ? console.error(err) : console.log(`Count updated: ${combinedCount}`)
+				);
+				db.get("SELECT * FROM Counter", (err, row) =>
+					err ? console.error(err) : (console.log(row), res.status(201).json(row.count))
+				);
+			}
+		});
+	});
 });
 
 export default apiRouter;
