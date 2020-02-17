@@ -12,7 +12,9 @@ const sqlCountUpdator = (payload: number): string =>
 
 apiRouter.get("/", (req, res) => {
 	db.get("SELECT * FROM Counter", (err, row) =>
-		err ? console.error(err) : (console.log(row), res.status(200).json(row.count))
+		err
+			? console.error(err)
+			: (console.log(`GET ROUTE JUST RENDERED`), res.status(200).json(row.count))
 	);
 });
 

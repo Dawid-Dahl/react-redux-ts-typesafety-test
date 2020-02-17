@@ -26,7 +26,6 @@ const countReducer = (
 		case `FETCH_COUNT_${ActionSuffix.fulfilled}`:
 			return {...state, count: payload};
 		case `SET_COUNT_${ActionSuffix.pending}`:
-			console.log(`Pending SET COUNT: payload: ${payload}`);
 			return {...state, count: ""};
 		case `SET_COUNT_${ActionSuffix.fulfilled}`:
 			return {...state, count: payload};

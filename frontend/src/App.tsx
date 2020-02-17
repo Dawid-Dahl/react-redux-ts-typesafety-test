@@ -12,6 +12,7 @@ const App: React.FC = () => {
 	const dispatch = useDispatch();
 	React.useEffect(() => {
 		dispatch(fetchCount());
+		console.log("I JUST RENDERED");
 	}, [count]);
 
 	return (
