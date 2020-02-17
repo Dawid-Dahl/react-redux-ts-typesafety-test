@@ -7,7 +7,7 @@ enum ActionSuffix {
 }
 
 export type ReducerState = {
-	count: number | Promise<any>;
+	count: number | Promise<any> | "";
 	isFetching: boolean;
 	error: Error | null;
 };
@@ -25,8 +25,10 @@ const countReducer = (
 	switch (type) {
 		case `FETCH_COUNT_${ActionSuffix.fulfilled}`:
 			return {...state, count: payload};
+		case `SET_COUNT_${ActionSuffix.pending}`:
+			console.log(`Pending SET COUNT: payload: ${payload}`);
+			return {...state, count: ""};
 		case `SET_COUNT_${ActionSuffix.fulfilled}`:
-			console.dir(`Inside SET_COUNT_REDUCER. Payload is: ${payload}`);
 			return {...state, count: payload};
 		default:
 			return state;
